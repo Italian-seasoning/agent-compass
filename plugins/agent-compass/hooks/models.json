@@ -1,0 +1,23 @@
+{
+  "note": "Suggested starting profiles, not verified model limits or Plus charges. Verify runtime support and availability. Never switch automatically.",
+  "models": {
+    "gpt-6-astra": {"window": 128000, "compact": 85000},
+    "gpt-6-sol": {"window": 192000, "compact": 128000},
+    "gpt-6-luna": {"window": 64000, "compact": 42000},
+    "gpt-6.1-sol": {"window": 256000, "compact": 170000, "extended_window": 445000, "extended_compact": 250000},
+    "gpt-6.1-terra": {"window": 96000, "compact": 64000},
+    "gpt-6.2-sol": {"window": 192000, "compact": 128000},
+    "gpt-6.2-astra": {"window": 128000, "compact": 85000}
+  },
+  "routes": {
+    "everyday": {"model":"gpt-6.1-sol", "effort":"medium", "impact":"medium", "reason":"general coding and integration", "fallback":"gpt-6.1-terra low for explicitly scoped work", "skill":"lego-task for bounded delegation"},
+    "ui": {"model":"gpt-6.1-sol", "effort":"medium", "impact":"medium", "reason":"ordinary interface work; evaluate visually", "fallback":"gpt-6.1-terra low for specified UI changes", "skill":"design-taste-frontend or frontend-design"},
+    "visual": {"model":"gpt-6.2-sol", "effort":"medium", "impact":"medium", "reason":"complex visual or interactive 3D work; render and test", "fallback":"gpt-6.1-sol medium for simpler work", "skill":"design-taste-frontend"},
+    "robotics": {"model":"gpt-6.2-astra", "effort":"high", "impact":"high", "reason":"exceptional 3D or robotics planning; validate on the actual system", "fallback":"gpt-6.2-sol high", "skill":"relevant domain workflow"},
+    "debug": {"model":"gpt-6.1-sol", "effort":"high", "impact":"high", "reason":"difficult debugging and diagnosis", "fallback":"gpt-6.1-sol medium for routine fixes", "skill":"systematic-debugging"},
+    "architecture": {"model":"gpt-6.1-sol", "effort":"medium", "impact":"medium", "reason":"architecture and integration; raise to high for hard decisions", "fallback":"gpt-6.1-terra low for explicit implementation", "skill":"relevant project workflow"},
+    "implementation": {"model":"gpt-6.1-terra", "effort":"low", "impact":"low", "reason":"explicit bounded implementation with acceptance checks", "fallback":"gpt-6-luna low for mechanical edits", "skill":"lego-task"},
+    "exploration": {"model":"gpt-6-luna", "effort":"high", "impact":"medium", "reason":"narrow read-only exploration; escalate difficult findings", "fallback":"gpt-6-luna low for mechanical work", "skill":"focused search"},
+    "mechanical": {"model":"gpt-6-luna", "effort":"low", "impact":"low", "reason":"deterministic mechanical edits", "fallback":"gpt-6.1-terra low", "skill":"focused edit and test"}
+  }
+}
